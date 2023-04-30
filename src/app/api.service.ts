@@ -1,14 +1,14 @@
+import { toSignal, toObservable } from '@angular/core/rxjs-interop';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal, } from '@angular/core';
-import { Observable } from 'rxjs';
-import { toSignal } from '@angular/core/rxjs-interop'
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  products = toSignal<IProduct[]>(this.http.get<IProduct[]>('https://fakestoreapi.com/products'));
+  public products = toSignal<IProduct[]>(this.http.get<IProduct[]>('https://fakestoreapi.com/products'));
+  public products$ = toObservable(this.products);
   constructor(private http: HttpClient) {
 
   }

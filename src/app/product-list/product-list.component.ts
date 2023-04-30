@@ -13,15 +13,10 @@ export class ProductListComponent implements OnInit {
   constructor(public api: ApiService, private castService: CartService) { }
 
   ngOnInit() {
-    this.getAllProducts();
-  }
-
-  getAllProducts(){
-
   }
 
   addToCart(product: IProduct){
-    this.castService.add(product);
+    this.castService.addProductSignal(product);
   }
 
 }

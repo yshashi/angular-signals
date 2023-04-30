@@ -8,11 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  total: number = 0;
   constructor(public cartService: CartService) { }
 
   ngOnInit() {
-    this.total = this.cartService.totalItem();
+
   }
 
 }

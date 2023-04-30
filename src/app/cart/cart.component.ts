@@ -14,7 +14,10 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
 
+  }
 
+  remove(i: number){
+    this.cartService.removeProductSignal(i);
   }
 
 }
