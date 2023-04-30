@@ -1,0 +1,26 @@
+img{
+  object-fit: contain;
+  padding: 10px;
+}
+
+.card-body p {
+  display: block;
+  display: -webkit-box;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card{
+  position: relative;
+}
+.move{
+  position: absolute;
+  top: 10px;
+  right: 15px;
+}
+
