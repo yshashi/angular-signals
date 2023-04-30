@@ -10,18 +10,14 @@ import { CartService } from '../cart.service';
 export class ProductListComponent implements OnInit {
 
   public products: IProduct[] = [];
-  constructor(private api: ApiService, private castService: CartService) { }
+  constructor(public api: ApiService, private castService: CartService) { }
 
   ngOnInit() {
     this.getAllProducts();
   }
 
   getAllProducts(){
-    this.api.getProducts()
-    .subscribe(res=>{
-      this.products = res;
 
-    })
   }
 
   addToCart(product: IProduct){

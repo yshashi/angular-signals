@@ -2,7 +2,7 @@
   <div *ngIf="cartService.cartItems().length > 0 else noItem" class="CartContainer mx-auto">
     <div class="Header">
       <h3 class="Heading">Shopping Cart</h3>
-      <h5 (click)="cartService.removeAll()" class="Action">Remove all</h5>
+
     </div>
 
     <ng-container *ngFor="let row of cartService.cartItems(); let i =index">

@@ -9,7 +9,7 @@ export class CartService {
   public cartItems$ = new BehaviorSubject<IProduct[]>([]);
   public cartItems = signal<IProduct[]>([]);
   public products: IProduct[] = []
-  constructor() {
+  constructor(private api: ApiService) {
 
    }
 
@@ -26,6 +26,11 @@ export class CartService {
   add(product:IProduct){
     this.cartItems.mutate(val=>{
       val.push(product);
+    });
+    this.api.products()?.forEach(a=>{
+      if(a.id === product.id){
+        a.rating.count = a.rating.count - 1;
+      }
     })
   }
 
@@ -36,12 +41,13 @@ export class CartService {
 
   removeProductSignal(id: number){
     this.cartItems.mutate((val)=>{
-      val.splice(id,1)
+      const data = val.splice(id,1);
+      this.api.products()?.forEach(a=>{
+        if(data[0].id === a.id){
+          a.rating.count = a.rating.count + 1;
+        }
+      })
     })
-  }
-
-  removeAll(){
-    this.cartItems.update(()=>[])
   }
 
 }
